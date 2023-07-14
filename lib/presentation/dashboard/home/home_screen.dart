@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                     builder: (context, state) {
                   return BlocMapToEvent(
                     state: state.eventState,
-                    message: '',
+                    message: state.message,
                     child: getImages(state),
                   );
                 }),

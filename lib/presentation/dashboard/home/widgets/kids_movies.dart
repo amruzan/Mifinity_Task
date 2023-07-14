@@ -15,7 +15,7 @@ class KidsMovies extends StatelessWidget {
           builder: (context, state) {
         return BlocMapToEvent(
           state: state.eventState,
-          message: '',
+          message: state.message,
           child: getKidsMovieImages(state),
         );
       }),
