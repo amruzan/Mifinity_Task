@@ -134,19 +134,4 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.black,
-//       body: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children:  [
-//             const Text('Launching...',style: TextStyle(fontSize: 30,fontWeight: FontWeight.w700,color: Colors.red),),
-//             SizedBox(height: 1.h,),
-//             const CircularProgressIndicator(color: Colors.white,)
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+

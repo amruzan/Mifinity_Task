@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mifinity_coding_task/common/config/router.gr.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -108,13 +109,11 @@ class LoginScreenState extends State<LoginScreen> {
                       shape: const RoundedRectangleBorder(
                           side: BorderSide(color: Colors.white10)),
                       backgroundColor: Colors.black),
-                  onPressed: () {
+                  onPressed: () async{
                     if (_formKey.currentState!.validate()) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                            content:
-                                Text('Invalid Credentials.Login as Guest')),
-                      );
+                      SharedPreferences prefs = await SharedPreferences.getInstance();
+                      prefs.setString('userEmail', email.text);
+                      context.router.replace(const Dashboard());
                     }
                   },
                   child: const Text('Log In'),
@@ -131,10 +130,8 @@ class LoginScreenState extends State<LoginScreen> {
                       shape: const RoundedRectangleBorder(
                           side: BorderSide(color: Colors.white10)),
                       backgroundColor: Colors.black),
-                  onPressed: () {
-                    context.router.push(const Dashboard());
-                  },
-                  child: const Text('Guest LogIn'),
+                  onPressed: null,
+                  child: const Text('Sign Up',style: TextStyle(color: Colors.white),),
                 ),
               ),
             ],
